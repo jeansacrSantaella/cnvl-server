@@ -37,6 +37,7 @@ app.use((req, res, next) => {
 
 app.post('*',async function(req, res) {
     let url= servidor+req.url;
+    console.log('post',url)
   if(req.url === '/sarc-microservices-svn-client/api/svn/get-pdf'){
     try {
       const response = await axios.post(url,req.body,{headers:{
@@ -47,9 +48,7 @@ app.post('*',async function(req, res) {
     })
     .then(response=>{ 
       res.send(response.data)
-    })
-    //return res.status(response.status).json(response);
-    
+    })  
     } catch (err) {
       return res.status(500).json([]);
     }
@@ -83,7 +82,7 @@ try {
 
 app.put('*',async function(req, res) {
   let url= servidor+req.url;
-
+  console.log('PUT',url);
 try {
     const response = await axios.put(url,req.body,{headers:{
       Authorization: `${req.headers.authorization}`
