@@ -26,8 +26,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/',micros);
-app.use('/SARC', indexRouter);
+app.use('/micros',micros);
+app.use('/', indexRouter);
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
