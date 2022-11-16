@@ -18,13 +18,10 @@ router.use((req, res, next) => {
 
 router.post('*',async function(req, res) {
     let url= servidor+req.url;
-    console.log('post ',url)
-  console.log(req);
-
   if(req.url === '/sarc-microservices-svn-client/api/svn/get-pdf'){
     try {
       await axios.post(url,req.body,{headers:{
-        Authorization: `${req.headers.authorization}`, 'Content-Type': 'application/json'
+        Authorization: `${req.headers.authorization}`
       },
       responseType: 'arraybuffer',
       observe: 'response'
@@ -39,12 +36,11 @@ router.post('*',async function(req, res) {
     try {
       console.log(req.body);
       const response = await axios.post(url,req.body,{headers:{
-        Authorization: `${req.headers.authorization}`,'Content-Type': 'application/json'
+        Authorization: `${req.headers.authorization}`
       }
     });
       return res.status(response.status).json( response.data);
     } catch (err) {
-      //console.error(err);
       return res.status(500).json(err);
     }
   } 
