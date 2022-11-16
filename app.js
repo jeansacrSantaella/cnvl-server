@@ -12,6 +12,9 @@ let servidor = 'http://10.1.15.156:8080';
 
 var app = express();
 
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
