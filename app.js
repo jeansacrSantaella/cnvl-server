@@ -13,9 +13,6 @@ let servidor = 'http://10.1.15.156:8080';
 
 var app = express();
 
-
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -39,8 +36,6 @@ app.use((req, res, next) => {
   res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE')
   next()
 })
-
-
 
 
 module.exports = app;
